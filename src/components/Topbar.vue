@@ -1,16 +1,16 @@
 <template>
-  <Topbar />
-  <router-view></router-view>
+  <header class="topbar">
+    <div class="topbar-logo">导航LOGO</div>
+    <div class="topbar-side">
+      <router-link to="/">路由1</router-link>
+      <span> | </span>
+      <router-link to="/doc">路由2</router-link>
+    </div>
+  </header>
 </template>
 
 <script>
-import Topbar from './components/Topbar.vue';
-
 export default {
-  name: 'App',
-  components: {
-    Topbar,
-  },
 };
 </script>
 
