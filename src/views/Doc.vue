@@ -28,11 +28,15 @@ export default {
 .page {
   .aside {
     width: 150px;
-    padding: 50px 16px 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
+    padding: 16px 16px;
     background-color: #add8e6;
+
+    @media (max-width: 500px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 66px;
+    }
   }
 
   .aside-title {

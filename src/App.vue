@@ -13,22 +13,14 @@ export default {
     Topbar,
   },
   setup() {
-    const asideVisible = ref(false);
+    const width = document.documentElement.clientWidth;
+    // 宽度大于500像素时默认为pc端，文档左侧菜单可见
+    const asideVisible = ref((width > 500));
     provide('asideVisible', asideVisible);
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 30px;
-  color: #fff;
-  background: #393;
 
-  .topbar-logo {
-    flex: 1;
-  }
-}
 </style>

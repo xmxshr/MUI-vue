@@ -1,7 +1,10 @@
 <template>
   <header class="topbar">
-    <div class="topbar-logo" @click="toggleAside">导航LOGO</div>
-    <div class="topbar-side">
+    <div class="icon-menu-wrap" @click="toggleAside">
+      <div class="icon-menu"></div>
+    </div>
+    <div class="topbar-logo">导航LOGO</div>
+    <div class="topbar-menu">
       <router-link to="/">路由1</router-link>
       <span> | </span>
       <router-link to="/doc">路由2</router-link>
@@ -27,11 +30,66 @@ export default {
 <style lang="scss" scoped>
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 1000;
   padding: 15px 30px;
   color: #fff;
   background: #393;
+
+  .topbar-logo {
+    margin-right: auto;
+  }
+
+  @media (max-width: 500px) {
+    .topbar-menu {
+      display: none;
+    }
+
+    .topbar-logo {
+      margin-left: auto;
+    }
+
+    .icon-menu-wrap {
+      display: flex;
+    }
+  }
+}
+
+.icon-menu-wrap {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+
+  .icon-menu-base {
+    width: 20px;
+    height: 2px;
+    background-color: #999;
+    border-radius: 1px;
+  }
+
+  .icon-menu {
+    @extend .icon-menu-base;
+    position: relative;
+
+    &::before,
+    &::after {
+      @extend .icon-menu-base;
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      bottom: -8px;
+    }
+  }
 }
 </style>
