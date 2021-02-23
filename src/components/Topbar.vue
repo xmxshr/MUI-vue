@@ -1,6 +1,6 @@
 <template>
   <header class="topbar">
-    <div class="topbar-logo">导航LOGO</div>
+    <div class="topbar-logo" @click="toggleAside">导航LOGO</div>
     <div class="topbar-side">
       <router-link to="/">路由1</router-link>
       <span> | </span>
@@ -9,8 +9,18 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
+import { inject, Ref } from 'vue';
 export default {
+  setup() {
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    const toggleAside = () => {
+      asideVisible.value = !asideVisible.value;
+    };
+    return {
+      toggleAside,
+    };
+  },
 };
 </script>
 
@@ -18,12 +28,10 @@ export default {
 .topbar {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1000;
   padding: 15px 30px;
   color: #fff;
   background: #393;
-
-  .topbar-logo {
-    flex: 1;
-  }
 }
 </style>
