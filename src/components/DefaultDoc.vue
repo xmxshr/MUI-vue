@@ -1,6 +1,6 @@
 <template>
   <div class="sub-page">
-    switch 组件文档
+    doc 默认页面
   </div>
 </template>
 

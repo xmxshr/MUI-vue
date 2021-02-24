@@ -4,8 +4,9 @@
       <h2 class="aside-title">组件列表</h2>
       <ol class="aside-list">
         <li><router-link to="/doc/switch">Switch组件</router-link></li>
-        <li>组件2</li>
-        <li>组件3</li>
+        <li><router-link to="/doc/button">Button组件</router-link></li>
+        <li><router-link to="/doc/dialog">Dialog组件</router-link></li>
+        <li><router-link to="/doc/tabs">Tabs组件</router-link></li>
       </ol>
     </aside>
     <div class="container">
@@ -65,6 +66,7 @@ export default {
     height: 100%;
     overflow-x: scroll;
     padding: 10px;
+    background-color: #f99;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="sub-page">
-    switch 组件文档
+    tabs 组件文档
   </div>
 </template>
 
