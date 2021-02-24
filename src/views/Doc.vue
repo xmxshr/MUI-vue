@@ -3,11 +3,16 @@
     <aside class="aside" v-if="asideVisible">
       <h2 class="aside-title">组件列表</h2>
       <ol class="aside-list">
-        <li>组件1</li>
+        <li><router-link to="/doc/switch">Switch组件</router-link></li>
         <li>组件2</li>
         <li>组件3</li>
       </ol>
     </aside>
+    <div class="container">
+      <div class="view">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,6 +31,9 @@ export default {
 
 <style lang="scss" scoped>
 .page {
+  display: flex;
+  height: 100%;
+
   .aside {
     width: 150px;
     padding: 16px 16px;
@@ -34,6 +42,7 @@ export default {
     @media (max-width: 500px) {
       position: fixed;
       top: 0;
+      bottom: 0;
       left: 0;
       padding-top: 66px;
     }
@@ -45,6 +54,17 @@ export default {
 
   .aside-list li {
     padding: 4px 0;
+  }
+
+  .container {
+    flex: 1;
+    height: 100%;
+  }
+
+  .view {
+    height: 100%;
+    overflow-x: scroll;
+    padding: 10px;
   }
 }
 </style>
