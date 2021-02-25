@@ -1,5 +1,5 @@
 <template>
-  <button :class="{checked: value}" @click="toggleStatus"> <span></span> </button>
+  <button class="mui-switch" :class="{'mui-checked': value}" @click="toggleStatus"> <span></span> </button>
 </template>
 
 <script lang="ts">
@@ -19,12 +19,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $gap: 2px;
 $h: 22px;
 $h2: $h - $gap * 2;
 
-button {
+.mui-switch {
   position: relative;
   width: $h * 2;
   height: $h;
@@ -44,7 +44,7 @@ button {
     transition: all 0.25s;
   }
 
-  &.checked {
+  &.mui-checked {
     background-color: #1890ff;
 
     > span {
@@ -56,7 +56,7 @@ button {
     width: $h2 + 4px;
   }
 
-  &.checked:active > span {
+  &.mui-checked:active > span {
     width: $h2 + 4px;
     margin-left: -4px;
   }

@@ -1,10 +1,10 @@
 <template>
-  <button class="m-button">
+  <button class="mui-button">
     <slot />
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $min-width: 60px;
 $height: 32px;
 $theme-color: #40a9ff;
@@ -12,7 +12,7 @@ $color: rgba(0, 0, 0, .85);
 $border-color: #d9d9d9;
 $radius: 2px;
 
-.m-button {
+.mui-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
