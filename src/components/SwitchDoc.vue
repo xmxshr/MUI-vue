@@ -1,11 +1,18 @@
 <template>
-  <div class="sub-page">
-    switch 组件文档
+  <div>
+    <Switch />
   </div>
 </template>
 
+<script lang="ts">
+import Switch from '../lib/Switch.vue';
+
+export default {
+  components: {
+    Switch,
+  },
+};
+</script>
+
 <style lang="scss" scoped>
-.sub-page {
-  height: 150vh;
-}
 </style>
