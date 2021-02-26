@@ -1,29 +1,77 @@
 <template>
-  <div class="mui-dialog-mask"></div>
-  <div class="mui-dialog-wrap">
-    <div class="mui-dialog">
-      <header class="miu-dialog-header">
-        <div class="miu-dialog-title">标题</div>
-        <span class="miu-dialog-close"></span>
-      </header>
-      <main class="miu-dialog-body">
-        <p>内容</p>
-        <p>内容</p>
-      </main>
-      <footer class="miu-dialog-footer">
-        <Button theme="primary">ok</Button>
-        <Button>cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="mui-dialog-mask" @click="onClickMask"></div>
+    <div class="mui-dialog-wrap">
+      <div class="mui-dialog">
+        <header class="miu-dialog-header">
+          <div class="miu-dialog-title">标题</div>
+          <span class="miu-dialog-close" @click="onClose"></span>
+        </header>
+        <main class="miu-dialog-body">
+          <p>内容</p>
+          <p>内容</p>
+        </main>
+        <footer class="miu-dialog-footer">
+          <Button theme="primary" @click="onOk">ok</Button>
+          <Button @click="onCancel">cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
 import Button from './Button.vue';
 
 export default {
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+    clickMaskClose: {
+      type: Boolean,
+      default: true,
+    },
+    okFn: {
+      type: Function,
+    },
+    cancelFn: {
+      type: Function,
+    },
+  },
   components: {
     Button,
+  },
+  setup(props, context) {
+    // 关闭函数
+    const onClose = () => {
+      context.emit('update:visible', false);
+    };
+    // 判断点击 mask 关闭
+    const onClickMask = () => {
+      if (props.clickMaskClose) onClose();
+    };
+    // 点击 确定 按钮
+    const onOk = () => {
+      if (props.okFn) {
+        if (props.okFn() !== false) onClose();
+      }
+      else onClose();
+    };
+    // 点击 取消 按钮
+    const onCancel = () => {
+      if (props.cancelFn) {
+        if (props.cancelFn() !== false) onClose();
+      }
+      else onClose();
+    };
+    return {
+      onClose,
+      onClickMask,
+      onOk,
+      onCancel,
+    };
   },
 };
 </script>
@@ -39,6 +87,7 @@ $radius: 2px;
   bottom: 0;
   left: 0;
   z-index: $z-index;
+  background-color: rgba(0, 0, 0, .6);
 }
 
 .mui-dialog-wrap {
@@ -51,6 +100,7 @@ $radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 .mui-dialog {
@@ -61,6 +111,7 @@ $radius: 2px;
     0 3px 6px -4px rgb(0, 0, 0, 0.12),
     0 6px 16px 0 rgb(0, 0, 0, .08),
     0 9px 28px 8px rgb(0, 0, 0, .05);
+  pointer-events: all;
 
   .miu-dialog-header {
     display: flex;
