@@ -1,11 +1,18 @@
 <template>
-  <div class="sub-page">
-    dialog 组件文档
+  <div>
+    <Dialog />
   </div>
 </template>
 
+<script lang="ts">
+import Dialog from '../lib/Dialog.vue';
+
+export default {
+  components: {
+    Dialog,
+  },
+};
+</script>
+
 <style lang="scss" scoped>
-.sub-page {
-  height: 150vh;
-}
 </style>
