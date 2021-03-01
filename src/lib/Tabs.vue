@@ -11,7 +11,7 @@
     </div>
     <div class="miu-tabs-content">
       <component class="miu-tabs-content-item"
-        :class="{'miu-tabs-content-selected': c === current}"
+        :class="{'miu-tabs-content-selected': c.props.title === selected}"
         v-for="(c, index) in contents" :key="index" :is="c"
       ></component>
     </div>
@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts">
-import { computed } from 'vue';
 import Tab from './Tab.vue';
 
 export default {
@@ -43,14 +42,9 @@ export default {
       context.emit('update:selected', title);
     };
 
-    const current = computed(() => {
-      return contents.filter(tag => (tag.props.title === props.selected))[0];
-    });
-
     return {
       contents,
       titles,
-      current,
       selectItem,
     };
   },
