@@ -1,12 +1,21 @@
 <template>
   <div>
+    <h2>示例1 组件调用</h2>
     <Button @click="toggle">open</Button>
     <Dialog
       v-model:visible="visible"
       :clickMaskClose="false"
       :okFn="onOkFn"
       :cancelFn="onCancelFn"
-    />
+    >
+      <template v-slot:title>
+        <div>标题</div>
+      </template>
+      <template v-slot:content>
+        <div>内容</div>
+        <div>内容</div>
+      </template>
+    </Dialog>
   </div>
 </template>
 

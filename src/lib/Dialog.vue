@@ -1,22 +1,25 @@
 <template>
   <template v-if="visible">
-    <div class="mui-dialog-mask" @click="onClickMask"></div>
-    <div class="mui-dialog-wrap">
-      <div class="mui-dialog">
-        <header class="miu-dialog-header">
-          <div class="miu-dialog-title">标题</div>
-          <span class="miu-dialog-close" @click="onClose"></span>
-        </header>
-        <main class="miu-dialog-body">
-          <p>内容</p>
-          <p>内容</p>
-        </main>
-        <footer class="miu-dialog-footer">
-          <Button theme="primary" @click="onOk">ok</Button>
-          <Button @click="onCancel">cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="mui-dialog-mask" @click="onClickMask"></div>
+      <div class="mui-dialog-wrap">
+        <div class="mui-dialog">
+          <header class="miu-dialog-header">
+            <div class="miu-dialog-title">
+              <slot name="title">提示</slot>
+            </div>
+            <span class="miu-dialog-close" @click="onClose"></span>
+          </header>
+          <main class="miu-dialog-body">
+            <slot name="content">内容</slot>
+          </main>
+          <footer class="miu-dialog-footer">
+            <Button theme="primary" @click="onOk">ok</Button>
+            <Button @click="onCancel">cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
