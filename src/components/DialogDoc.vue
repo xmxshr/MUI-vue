@@ -17,11 +17,16 @@
       </template>
     </Dialog>
   </div>
+  <div>
+    <h2>示例2 函数调用</h2>
+    <Button @click="showDialog">open</Button>
+  </div>
 </template>
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
+import { openDialog } from '../lib/openDialog';
 import { ref } from 'vue';
 
 export default {
@@ -40,11 +45,18 @@ export default {
     const onCancelFn = () => {
       return false;
     };
+    const showDialog = () => {
+      openDialog({
+        title: '标题',
+        content: '哈哈',
+      });
+    };
     return {
       visible,
       toggle,
       onOkFn,
       onCancelFn,
+      showDialog,
     };
   },
 };
