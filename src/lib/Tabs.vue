@@ -5,9 +5,11 @@
         :class="{'miu-tabs-nav-selected': title === selected}"
         v-for="(title, index) in titles" :key="index"
         @click="selectItem(title)"
+        :ref="el => { if (el) navItem[index] = el }"
       >
         {{title}}
       </div>
+      <div class="miu-tab-indicator" ref="indicator"></div>
     </div>
     <div class="miu-tabs-content">
       <component class="miu-tabs-content-item"
@@ -19,6 +21,7 @@
 </template>
 
 <script lang="ts">
+import { onMounted, onUpdated, ref } from 'vue';
 import Tab from './Tab.vue';
 
 export default {
@@ -42,10 +45,23 @@ export default {
       context.emit('update:selected', title);
     };
 
+    // 下划线宽度及定位
+    const navItem = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    const setIndicator = () => {
+      const curNav = navItem.value.filter(div => div.classList.contains('miu-tabs-nav-selected'))[0];
+      indicator.value.style.width = `${curNav.clientWidth}px`;
+      indicator.value.style.left = `${curNav.offsetLeft}px`;
+    }
+    onMounted(setIndicator);
+    onUpdated(setIndicator);
+
     return {
       contents,
       titles,
       selectItem,
+      navItem,
+      indicator,
     };
   },
 };
@@ -60,6 +76,7 @@ $border-color: #d9d9d9;
   .miu-tabs-nav {
     display: flex;
     align-items: center;
+    position: relative;
     color: $color;
     border-bottom: 1px solid $border-color;
   }
@@ -76,6 +93,16 @@ $border-color: #d9d9d9;
     &.miu-tabs-nav-selected {
       color: $theme-color;
     }
+  }
+
+  .miu-tab-indicator {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: $theme-color;
+    transition: all 250ms;
   }
 
   .miu-tabs-content {

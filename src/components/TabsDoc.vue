@@ -2,7 +2,7 @@
   <div>
     <Tabs v-model:selected="curTag">
       <Tab title="标签1">内容1</Tab>
-      <Tab title="标签2">内容2</Tab>
+      <Tab title="标签2222">内容2</Tab>
     </Tabs>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     Tabs,
   },
   setup() {
-    const curTag = ref('标签1');
+    const curTag = ref('标签2222');
     return {
       curTag,
     };
