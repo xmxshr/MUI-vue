@@ -1,6 +1,6 @@
 <template>
-  <header class="topbar">
-    <div class="icon-menu-wrap" @click="toggleAside">
+  <header class="topbar" :class="{'topbar-bg': background}">
+    <div v-if="menuVisible" class="icon-menu-wrap" @click="toggleAside">
       <div class="icon-menu"></div>
     </div>
     <router-link to="/" class="topbar-logo">
@@ -16,7 +16,18 @@
 
 <script lang="ts">
 import { inject, Ref } from 'vue';
+
 export default {
+  props: {
+    menuVisible: {
+      type: Boolean,
+      default: false,
+    },
+    background: {
+      type: Boolean,
+      default: true,
+    },
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
@@ -37,6 +48,11 @@ export default {
   position: relative;
   z-index: 1000;
   padding: 15px 30px;
+
+  &.topbar-bg {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
 
   .topbar-logo {
     margin-right: auto;

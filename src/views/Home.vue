@@ -1,4 +1,5 @@
 <template>
+  <Topbar :background="false" />
   <div class="page">
     <div class="bg-shadow"></div>
     <h1 class="title">MUI</h1>
@@ -10,9 +11,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Topbar from '../components/Topbar.vue';
+
 export default {
   name: 'Home',
+  components: {
+    Topbar,
+  },
 };
 </script>
 
@@ -32,7 +38,7 @@ $btn-color: #425ada;
     height: 450px;
     // background-image: linear-gradient(to right bottom, #cbe2fb, #bfdaf8, #b4d1f4, #a8c9f1, #9dc0ed);
     background-image: linear-gradient(to right bottom, #cbe2fb, #a8cdf8, #86b7f5, #64a1f2, #3f8bed);
-    clip-path: ellipse(110% 70% at 50% 30%);
+    clip-path: ellipse(170% 70% at 0% 30%);
   }
 
   .desc {

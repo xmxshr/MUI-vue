@@ -1,4 +1,5 @@
 <template>
+  <Topbar menuVisible />
   <div class="page">
     <aside class="aside" v-if="asideVisible">
       <h2 class="aside-title">组件列表</h2>
@@ -18,9 +19,14 @@
 </template>
 
 <script lang="ts">
+import Topbar from '../components/Topbar.vue';
 import { inject, Ref } from 'vue';
+
 export default {
   name: 'doc',
+  components: {
+    Topbar,
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     return {
