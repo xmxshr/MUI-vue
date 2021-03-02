@@ -12,16 +12,13 @@
       <div class="miu-tab-indicator" ref="indicator"></div>
     </div>
     <div class="miu-tabs-content">
-      <component class="miu-tabs-content-item"
-        :class="{'miu-tabs-content-selected': c.props.title === selected}"
-        v-for="(c, index) in contents" :key="index" :is="c"
-      ></component>
+      <component :is="current" :key="current.props.title"></component>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { onMounted, onUpdated, ref } from 'vue';
+import { computed, onMounted, onUpdated, ref } from 'vue';
 import Tab from './Tab.vue';
 
 export default {
@@ -45,6 +42,10 @@ export default {
       context.emit('update:selected', title);
     };
 
+    const current = computed(() => {
+      return contents.find(tag => tag.props.title === props.selected);
+    });
+
     // 下划线宽度及定位
     const selectedNavItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
@@ -59,6 +60,7 @@ export default {
     return {
       contents,
       titles,
+      current,
       selectItem,
       selectedNavItem,
       indicator,
@@ -107,14 +109,6 @@ $border-color: #d9d9d9;
 
   .miu-tabs-content {
     padding: 8px 0;
-  }
-
-  .miu-tabs-content-item {
-    display: none;
-
-    &.miu-tabs-content-selected {
-      display: block;
-    }
   }
 }
 </style>
