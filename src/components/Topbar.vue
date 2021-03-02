@@ -3,11 +3,13 @@
     <div class="icon-menu-wrap" @click="toggleAside">
       <div class="icon-menu"></div>
     </div>
-    <div class="topbar-logo">导航LOGO</div>
+    <router-link to="/" class="topbar-logo">
+      <svg class="icon">
+        <use xlink:href="#icon-logo"></use>
+      </svg>
+    </router-link>
     <div class="topbar-menu">
-      <router-link to="/">路由1</router-link>
-      <span> | </span>
-      <router-link to="/doc">路由2</router-link>
+      <router-link to="/doc">文档</router-link>
     </div>
   </header>
 </template>
@@ -35,11 +37,11 @@ export default {
   position: relative;
   z-index: 1000;
   padding: 15px 30px;
-  color: #fff;
-  background: #393;
 
   .topbar-logo {
     margin-right: auto;
+    font-size: 28px;
+    line-height: 1;
   }
 
   @media (max-width: 500px) {

@@ -1,3 +1,5 @@
+$color: #434346;
+
 html,
 body,
 a,
@@ -7,6 +9,7 @@ li {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: $color;
 }
 
 a {
@@ -27,3 +30,10 @@ li {
   list-style-type:none;
 }
 
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  line-height: 1;
+}
