@@ -26,6 +26,6 @@ export default {
 <style lang="scss" scoped>
 .app {
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 </style>

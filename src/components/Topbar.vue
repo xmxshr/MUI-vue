@@ -79,8 +79,12 @@ export default {
   display: none;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 30px;
   width: 20px;
   height: 20px;
+  transform: translateY(-50%);
 
   .icon-menu-base {
     width: 20px;
