@@ -5,7 +5,7 @@
         :class="{'miu-tabs-nav-selected': title === selected}"
         v-for="(title, index) in titles" :key="index"
         @click="selectItem(title)"
-        :ref="el => { if (el) navItem[index] = el }"
+        :ref="el => { if (title === selected) selectedNavItem = el }"
       >
         {{title}}
       </div>
@@ -46,13 +46,13 @@ export default {
     };
 
     // 下划线宽度及定位
-    const navItem = ref<HTMLDivElement[]>([]);
+    const selectedNavItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const setIndicator = () => {
-      const curNav = navItem.value.filter(div => div.classList.contains('miu-tabs-nav-selected'))[0];
+      const curNav = selectedNavItem.value;
       indicator.value.style.width = `${curNav.clientWidth}px`;
       indicator.value.style.left = `${curNav.offsetLeft}px`;
-    }
+    };
     onMounted(setIndicator);
     onUpdated(setIndicator);
 
@@ -60,7 +60,7 @@ export default {
       contents,
       titles,
       selectItem,
-      navItem,
+      selectedNavItem,
       indicator,
     };
   },
