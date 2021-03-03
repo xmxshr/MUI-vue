@@ -10,7 +10,7 @@
         <Button>查看源码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{SwitchDemo1.__sourceCode}}</pre>
+        <pre class="language-html" v-html="sourceCode"></pre>
       </div>
     </div>
   </div>
@@ -19,6 +19,10 @@
 <script lang="ts">
 import SwitchDemo1 from '../../components/SwitchDemo1.vue';
 import Button from '../../lib/Button.vue';
+import 'prismjs';
+import 'prismjs/themes/prism.css';
+
+const Prism = (window as any).Prism;
 
 export default {
   components: {
@@ -26,8 +30,11 @@ export default {
     SwitchDemo1,
   },
   setup() {
+    const sourceCode = Prism.highlight(SwitchDemo1.__sourceCode, Prism.languages.html, 'html');
+
     return {
       SwitchDemo1,
+      sourceCode,
     };
   },
 };
