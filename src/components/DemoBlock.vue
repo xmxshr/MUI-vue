@@ -7,9 +7,9 @@
         <component :is="component" />
       </div>
       <div class="demo-button">
-        <Button>查看源码</Button>
+        <Button @click="toggleSourceCodeVisible">查看源码</Button>
       </div>
-      <div class="demo-code">
+      <div class="demo-code" v-if="sourceCodeVisible">
         <pre class="language-html" v-html="sourceCode"></pre>
       </div>
     </div>
@@ -20,6 +20,7 @@
 import Button from '../lib/Button.vue';
 import 'prismjs';
 import 'prismjs/themes/prism.css';
+import { ref } from 'vue';
 
 const Prism = (window as any).Prism;
 
@@ -35,8 +36,15 @@ export default {
   setup(props) {
     const sourceCode = Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html');
 
+    const sourceCodeVisible = ref(false);
+    const toggleSourceCodeVisible = () => {
+      sourceCodeVisible.value = !sourceCodeVisible.value;
+    };
+
     return {
       sourceCode,
+      sourceCodeVisible,
+      toggleSourceCodeVisible,
     };
   },
 };
