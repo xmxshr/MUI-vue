@@ -2,6 +2,8 @@ import fs from 'fs';
 import { baseParse } from '@vue/compiler-core';
 
 export default {
+  base: './',
+  assetsDir: 'assets',
   vueCustomBlockTransforms: {
     // 存在demo标签时
     demo: (options) => {
