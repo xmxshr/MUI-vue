@@ -1,4 +1,5 @@
 <template>
+  <h1>Switch 组件</h1>
   <DemoBlock :component="SwitchDemo1" />
 </template>
 
