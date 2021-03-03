@@ -1,26 +1,20 @@
 <template>
-  <div>
-    <Tabs v-model:selected="curTag">
-      <Tab title="标签1">内容1</Tab>
-      <Tab title="标签2222">内容2</Tab>
-    </Tabs>
-  </div>
+  <h1>Tabs 组件</h1>
+  <DemoBlock :component="TabsDemo1" />
+  <div class="padding"></div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
-import Tab from '../../lib/Tab.vue';
-import Tabs from '../../lib/Tabs.vue';
+import DemoBlock from '../../components/DemoBlock.vue';
+import TabsDemo1 from '../../components/TabsDemo1.vue';
 
 export default {
   components: {
-    Tab,
-    Tabs,
+    DemoBlock,
   },
   setup() {
-    const curTag = ref('标签2222');
     return {
-      curTag,
+      TabsDemo1,
     };
   },
 };
