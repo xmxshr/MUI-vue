@@ -5,7 +5,7 @@ const openDialog = (options) => {
   const {
     title = '标题',
     content = '内容',
-    clickMaskClose = false,
+    clickMaskClose = true,
     okFn,
     cancelFn,
   } = options;
