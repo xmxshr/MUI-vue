@@ -6,6 +6,9 @@ import SwitchDoc from './components/SwitchDoc.vue';
 import ButtonDoc from './components/ButtonDoc.vue';
 import DialogDoc from './components/DialogDoc.vue';
 import TabsDoc from './components/TabsDoc.vue';
+import Introduction from './components/Introduction.vue';
+import GetStarted from './components/GetStarted.vue';
+import Install from './components/Install.vue';
 
 const history = createWebHashHistory();
 const router = createRouter({
@@ -17,9 +20,9 @@ const router = createRouter({
       component: Doc,
       children: [
         { path: '', component: DefaultDoc },
-        { path: 'introduction', component: SwitchDoc },
-        { path: 'get-start', component: SwitchDoc },
-        { path: 'install', component: SwitchDoc },
+        { path: 'introduction', component: Introduction },
+        { path: 'get-started', component: GetStarted },
+        { path: 'install', component: Install },
         { path: 'switch', component: SwitchDoc },
         { path: 'button', component: ButtonDoc },
         { path: 'dialog', component: DialogDoc },
