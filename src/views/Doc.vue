@@ -51,10 +51,11 @@ export default {
 
   .main {
     display: flex;
-    height: 100%;
+    height: calc(100% - 60px);
   }
 
   .aside {
+    flex: none;
     width: 180px;
     padding: 16px 0;
     background-color: #add8e6;
@@ -93,12 +94,13 @@ export default {
 
   .container {
     flex: 1;
+    width: calc(100% - 180px);
     height: 100%;
   }
 
   .view {
     height: 100%;
-    overflow-x: scroll;
+    overflow-y: scroll;
     padding: 10px;
   }
 }

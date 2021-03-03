@@ -47,7 +47,9 @@ export default {
   align-items: center;
   position: relative;
   z-index: 1000;
+  height: 60px;
   padding: 15px 30px;
+  box-sizing: border-box;
 
   &.topbar-bg {
     background-color: #fff;

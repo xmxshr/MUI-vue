@@ -54,8 +54,14 @@ export default {
 $border-color: #ccc;
 
 .demo {
+  margin-bottom: 40px;
+
   .demo-title {
     font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .demo-desc {
     margin-bottom: 20px;
   }
 

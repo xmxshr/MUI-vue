@@ -23,11 +23,19 @@ a {
 }
 
 ol,ul {
-  list-style:none;
+  list-style: none;
 }
 
 li {
-  list-style-type:none;
+  list-style-type: none;
+}
+
+.padding {
+  padding-bottom: 100px;
+}
+
+button + button {
+  margin: 10px !important;
 }
 
 .icon {

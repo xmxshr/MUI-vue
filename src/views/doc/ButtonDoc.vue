@@ -5,10 +5,10 @@
   <DemoBlock :component="ButtonDemo3" />
   <DemoBlock :component="ButtonDemo4" />
   <DemoBlock :component="ButtonDemo5" />
+  <div class="padding"></div>
 </template>
 
 <script lang="ts">
-import Button from '../../lib/Button.vue';
 import DemoBlock from '../../components/DemoBlock.vue';
 import ButtonDemo1 from '../../components/ButtonDemo1.vue';
 import ButtonDemo2 from '../../components/ButtonDemo2.vue';
@@ -18,7 +18,6 @@ import ButtonDemo5 from '../../components/ButtonDemo5.vue';
 
 export default {
   components: {
-    Button,
     DemoBlock,
   },
   setup() {

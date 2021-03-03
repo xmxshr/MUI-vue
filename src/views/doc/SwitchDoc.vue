@@ -1,6 +1,7 @@
 <template>
   <h1>Switch 组件</h1>
   <DemoBlock :component="SwitchDemo1" />
+  <div class="padding"></div>
 </template>
 
 <script lang="ts">
