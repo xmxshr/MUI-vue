@@ -3,6 +3,12 @@
     <Topbar menuVisible />
     <main class="main">
       <aside class="aside" v-if="asideVisible">
+        <h2 class="aside-title">快速上手</h2>
+        <ol class="aside-list">
+          <li><router-link to="/doc/introduction">介绍</router-link></li>
+          <li><router-link to="/doc/get-start">开始</router-link></li>
+          <li><router-link to="/doc/install">安装</router-link></li>
+        </ol>
         <h2 class="aside-title">组件列表</h2>
         <ol class="aside-list">
           <li><router-link to="/doc/switch">Switch组件</router-link></li>
@@ -49,8 +55,8 @@ export default {
   }
 
   .aside {
-    width: 150px;
-    padding: 16px 16px;
+    width: 180px;
+    padding: 16px 0;
     background-color: #add8e6;
 
     @media (max-width: 500px) {
@@ -63,11 +69,26 @@ export default {
   }
 
   .aside-title {
-    margin-bottom: 4px;
+    margin: 10px 16px 8px;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .45);
   }
 
-  .aside-list li {
-    padding: 4px 0;
+  .aside-list {
+    margin-bottom: 20px;
+
+    > li {
+      margin-bottom: 4px;
+    }
+
+    a {
+      display: block;
+      padding: 4px 16px;
+
+      &.router-link-active {
+        background-color: #fff;
+      }
+    }
   }
 
   .container {

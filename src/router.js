@@ -17,6 +17,9 @@ const router = createRouter({
       component: Doc,
       children: [
         { path: '', component: DefaultDoc },
+        { path: 'introduction', component: SwitchDoc },
+        { path: 'get-start', component: SwitchDoc },
+        { path: 'install', component: SwitchDoc },
         { path: 'switch', component: SwitchDoc },
         { path: 'button', component: ButtonDoc },
         { path: 'dialog', component: DialogDoc },
