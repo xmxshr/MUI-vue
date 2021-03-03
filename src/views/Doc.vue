@@ -61,7 +61,7 @@ $aside-index: 10;
     display: none;
     width: 180px;
     padding: 16px 0;
-    background-color: #add8e6;
+    background-color: #86b7f5;
 
     &.show {
       display: block;
@@ -76,7 +76,7 @@ $aside-index: 10;
       padding-top: 66px;
     }
 
-    @media (min-width: 500px) {
+    @media (min-width: 501px) {
       display: block;
     }
   }
@@ -113,7 +113,7 @@ $aside-index: 10;
   .view {
     height: 100%;
     overflow-y: auto;
-    padding: 10px;
+    padding: 0 40px;
   }
 }
 </style>

@@ -53,7 +53,7 @@ export default {
 
   &.topbar-bg {
     background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .45);
   }
 
   .topbar-logo {
