@@ -2,7 +2,7 @@
   <div class="page">
     <Topbar menuVisible />
     <main class="main">
-      <aside class="aside" v-if="asideVisible">
+      <aside class="aside" :class="{show: asideVisible}">
         <h2 class="aside-title">快速上手</h2>
         <ol class="aside-list">
           <li><router-link to="/doc/introduction">介绍</router-link></li>
@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$aside-index: 10;
+
 .page {
   height: 100vh;
   overflow: hidden;
@@ -56,16 +58,26 @@ export default {
 
   .aside {
     flex: none;
+    display: none;
     width: 180px;
     padding: 16px 0;
     background-color: #add8e6;
+
+    &.show {
+      display: block;
+    }
 
     @media (max-width: 500px) {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
+      z-index: $aside-index;
       padding-top: 66px;
+    }
+
+    @media (min-width: 500px) {
+      display: block;
     }
   }
 
@@ -100,7 +112,7 @@ export default {
 
   .view {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 10px;
   }
 }
