@@ -21,6 +21,8 @@
 
 <script lang="ts">
 import Button from '../lib/Button.vue';
+// 使用时改为以下引入
+// import { Button } from '@xmxshr/mui-vue';
 
 export default {
   components: {

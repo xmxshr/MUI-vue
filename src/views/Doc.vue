@@ -6,8 +6,8 @@
         <h2 class="aside-title">快速上手</h2>
         <ol class="aside-list">
           <li><router-link to="/doc/introduction">介绍</router-link></li>
-          <li><router-link to="/doc/get-started">开始</router-link></li>
           <li><router-link to="/doc/install">安装</router-link></li>
+          <li><router-link to="/doc/get-started">开始</router-link></li>
         </ol>
         <h2 class="aside-title">组件列表</h2>
         <ol class="aside-list">

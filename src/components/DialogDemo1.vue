@@ -19,9 +19,12 @@
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
+
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
-import { ref } from 'vue';
+// 使用时改为以下引入
+// import { Dialog, Button } from '@xmxshr/mui-vue';
 
 export default {
   components: {

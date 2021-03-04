@@ -10,8 +10,11 @@
 
 <script lang="ts">
 import { ref } from 'vue';
+
 import Tab from '../lib/Tab.vue';
 import Tabs from '../lib/Tabs.vue';
+// 使用时改为以下引入
+// import { Tab, Tabs } from '@xmxshr/mui-vue';
 
 export default {
   components: {

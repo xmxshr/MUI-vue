@@ -8,6 +8,8 @@
 <script lang="ts">
 import Button from '../lib/Button.vue';
 import { openDialog } from '../lib/openDialog';
+// 使用时改为以下引入
+// import { openDialog, Button } from '@xmxshr/mui-vue';
 
 export default {
   components: {
