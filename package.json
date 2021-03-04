@@ -1,5 +1,5 @@
 {
-  "name": "mui-vue",
+  "name": "@xmxshr/mui-vue",
   "version": "0.0.1",
   "files": ["dist/lib/*"],
   "main": "dist/lib/mui.js",
