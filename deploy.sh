@@ -5,6 +5,6 @@ git init &&
 git add . &&
 git commit -m "update" &&
 git branch -M master &&
-git remote add origin git@github.com:xmxshr/bead-ui-website.git &&
+git remote add origin git@github.com:xmxshr/mui-website.git &&
 git push -f -u origin master &&
 cd ..
