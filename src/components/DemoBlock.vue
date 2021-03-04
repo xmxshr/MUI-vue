@@ -7,7 +7,8 @@
         <component :is="component" />
       </div>
       <div class="demo-button">
-        <Button @click="toggleSourceCodeVisible">查看源码</Button>
+        <Button v-if="sourceCodeVisible" @click="toggleSourceCodeVisible(false)">隐藏源码</Button>
+        <Button v-else @click="toggleSourceCodeVisible(true)">查看源码</Button>
       </div>
       <div class="demo-code" v-if="sourceCodeVisible">
         <pre class="language-html" v-html="sourceCode"></pre>
@@ -37,8 +38,8 @@ export default {
     const sourceCode = Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html');
 
     const sourceCodeVisible = ref(false);
-    const toggleSourceCodeVisible = () => {
-      sourceCodeVisible.value = !sourceCodeVisible.value;
+    const toggleSourceCodeVisible = (bool) => {
+      sourceCodeVisible.value = bool;
     };
 
     return {

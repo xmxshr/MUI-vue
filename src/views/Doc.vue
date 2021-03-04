@@ -61,7 +61,7 @@ $aside-index: 10;
     display: none;
     width: 180px;
     padding: 16px 0;
-    background-color: #86b7f5;
+    background-color: #d6d6d6;
 
     &.show {
       display: block;
