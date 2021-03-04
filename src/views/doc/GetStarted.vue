@@ -18,11 +18,13 @@
 &lt;/template&gt;
 
 &lt;script&gt;
-  import { Button } from "king-ui"
+  import { Button } from "@xmxshr/mui-vue";
 
   export default {
-    components: {Button}
-  }
+    components: {
+      Button,
+    },
+  };
 &lt;/script&gt;
   </code></pre>
   </article>
